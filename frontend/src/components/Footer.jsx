@@ -23,7 +23,7 @@ const Footer = () => {
                         <ul className='flex flex-col gap-2 text-slate-600'>
                             <li>Address :  2504 Ivins Avenue, Egg Harbor Township, NJ 08234,</li>
                             <li>Phone : 4343434344</li>
-                            <li>Email : support@easylearingbd.com</li>
+                            <li>Email : support@vendorverse.com</li>
                         </ul> 
                     </div> 
                 </div>
@@ -104,7 +104,7 @@ const Footer = () => {
             </div>
 
             <div className='w-[90%] flex flex-wrap justify-center items-center text-slate-600 mx-auto py-5 text-center'>
-                <span>Copiright @ 2024 All Rights Reserved </span>
+                <span>Copiright @ 2025 All Rights Reserved </span>
             </div>
 
 
