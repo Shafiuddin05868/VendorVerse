@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -9,7 +11,7 @@ const socket = require('socket.io')
 const http = require('http')
 const server = http.createServer(app)
 app.use(cors({
-    origin : ['http://localhost:3000','http://localhost:3001'],
+    origin : [process.env.CLIENT_URL, process.env.DASHBOARD_URL],
     credentials: true
 }))
 
@@ -114,10 +116,6 @@ io.on('connection', (soc) => {
 
 
 })
-
-
-require('dotenv').config()
-  
 
 app.use(bodyParser.json())
 app.use(cookieParser())

@@ -7,7 +7,7 @@ import { FadeLoader } from 'react-spinners';
 import axios from 'axios';
 
 const load = async () => {
-    return await loadStripe('pk_test_51Oml5cGAwoXiNtjJgPPyQngDj9WTjawya4zCsqTn3LPFhl4VvLZZJIh9fW9wqVweFYC5f0YEb9zjUqRpXbkEKT7T00eU1xQvjp')
+    return await loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
 }
 
 const ConfirmOrder = () => {
@@ -55,7 +55,7 @@ const ConfirmOrder = () => {
         const orderId = localStorage.getItem('orderId')
         if (orderId) {
             try {
-                await axios.get(`http://localhost:5000/api/order/confirm/${orderId}`)
+                await axios.get(`${process.env.REACT_APP_API_URL}/order/confirm/${orderId}`)
                 localStorage.removeItem('orderId')
                 setLoader(false)
             } catch (error) {
