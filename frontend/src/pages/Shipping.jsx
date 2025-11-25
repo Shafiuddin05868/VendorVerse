@@ -33,8 +33,8 @@ const Shipping = () => {
 
     const save = (e) => {
         e.preventDefault()
-        const {name,address,phone,post,province,city,area } = state;
-        if (name && address && phone && post && province && city && area) {
+        const {name,address,phone,post,city } = state;
+        if (name && address && phone && post && city) {
             setRes(true)
         }
 
@@ -111,10 +111,10 @@ const Shipping = () => {
             </div>
 
             <div className='flex md:flex-col md:gap-2 w-full gap-5 text-slate-600'>
-            <div className='flex flex-col gap-1 mb-2 w-full'>
-                <label htmlFor="province"> Province </label>
-                <input onChange={inputHandle} value={state.province} type="text" className='w-full px-3 py-2 border border-slate-200 outline-none focus:border-green-500 rounded-md' name="province" id="province" placeholder='Province' /> 
-            </div>
+            {/* <div className='flex flex-col gap-1 mb-2 w-full'>
+                <label htmlFor="province"> District </label>
+                <input onChange={inputHandle} value={state.province} type="text" className='w-full px-3 py-2 border border-slate-200 outline-none focus:border-green-500 rounded-md' name="province" id="province" placeholder='District' /> 
+            </div> */}
 
             <div className='flex flex-col gap-1 mb-2 w-full'>
                 <label htmlFor="city"> City </label>
@@ -124,10 +124,10 @@ const Shipping = () => {
 
 
             <div className='flex md:flex-col md:gap-2 w-full gap-5 text-slate-600'>
-            <div className='flex flex-col gap-1 mb-2 w-full'>
+            {/* <div className='flex flex-col gap-1 mb-2 w-full'>
                 <label htmlFor="area"> Area </label>
                 <input onChange={inputHandle} value={state.area} type="text" className='w-full px-3 py-2 border border-slate-200 outline-none focus:border-green-500 rounded-md' name="area" id="area" placeholder='Area' /> 
-            </div>
+            </div> */}
 
             <div className='flex flex-col gap-1 mt-7 mb-2 w-full'>
                <button className='px-3 py-[6px] rounded-sm hover:shadow-green-500/50 hover:shadow-lg bg-green-500 text-white'>Save Change </button>
