@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Stripe from '../components/Stripe';
+import { useDispatch } from 'react-redux';
+import { confirm_order } from '../store/reducers/orderReducer';
 
 const Payment = () => {
 
     const { state: {price,items,orderId}} = useLocation()
     const [paymentMethod, setPaymentMethod] = useState('stripe')
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const handleCodPayment = () => {
+        dispatch(confirm_order({ orderId, navigate }))
+    }
 
 
     return (
@@ -41,7 +49,7 @@ const Payment = () => {
            }
         {
             paymentMethod === 'cod' && <div className='w-full px-4 py-8 bg-white shadow-sm'>
-                <button className='px-10 py-[6px] rounded-sm hover:shadow-green-500/20 hover:shadow-lg bg-[#059473] text-white'>Pay Now</button>
+                <button onClick={handleCodPayment} className='px-10 py-[6px] rounded-sm hover:shadow-green-500/20 hover:shadow-lg bg-[#059473] text-white'>Pay Now</button>
             </div>
         }
             

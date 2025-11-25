@@ -17,11 +17,14 @@ const ConfirmOrder = () => {
     const [message, setMessage] = useState(null)
 
     useEffect(() => {
-        if (!stripe) {
+        const clientSecret = new URLSearchParams(window.location.search).get('payment_intent_client_secret')
+        // If no clientSecret, this is a COD order - show success directly
+        if (!clientSecret) {
+            setMessage('succeeded')
+            setLoader(false)
             return
         }
-        const clientSecret = new URLSearchParams(window.location.search).get('payment_intent_client_secret')
-        if (!clientSecret) {
+        if (!stripe) {
             return
         }
         stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
@@ -46,9 +49,13 @@ const ConfirmOrder = () => {
         const tempStripe = await load()
         setStripe(tempStripe)
     }
-    
+
     useEffect(() => {
-        get_load()
+        const clientSecret = new URLSearchParams(window.location.search).get('payment_intent_client_secret')
+        // Only load Stripe if this is a Stripe payment
+        if (clientSecret) {
+            get_load()
+        }
     },[])
 
     const update_payment = async () => {
