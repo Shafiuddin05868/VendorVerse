@@ -145,14 +145,14 @@ const AdminDashboard = () => {
         
         <div className='w-full flex flex-wrap mt-7'>
             <div className='w-full lg:w-7/12 lg:pr-3'>
-                <div className='w-full bg-[#6a5fdf] p-4 rounded-md'>
+                <div className='w-full bg-gray-700 p-4 rounded-md'>
             <Chart options={state.options} series={state.series} type='bar' height={350} />
                 </div>
             </div>
 
         
         <div className='w-full lg:w-5/12 lg:pl-4 mt-6 lg:mt-0'>
-            <div className='w-full bg-[#6a5fdf] p-4 rounded-md text-[#d0d2d6]'>
+            <div className='w-full bg-gray-700 p-4 rounded-md text-[#d0d2d6]'>
                 <div className='flex justify-between items-center'>
                     <h2 className='font-semibold text-lg text-[#d0d2d6] pb-3'>Recent Seller Message</h2>
                     <Link className='font-semibold text-sm text-[#d0d2d6]'>View All</Link>
@@ -193,7 +193,7 @@ const AdminDashboard = () => {
         </div>
 
 
-        <div className='w-full p-4 bg-[#6a5fdf] rounded-md mt-6'>
+        <div className='w-full p-4 bg-gray-700 rounded-md mt-6'>
             <div className='flex justify-between items-center'>
                 <h2 className='font-semibold text-lg text-[#d0d2d6] pb-3 '>Recent Orders</h2>
                 <Link className='font-semibold text-sm text-[#d0d2d6]'>View All</Link>
